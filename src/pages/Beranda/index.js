@@ -1,14 +1,22 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Header, Button } from '../../components';
 
 const Beranda = () => {
     return (
         <View>
-            <Text>halaman Beranda</Text>
+            <Header title='Gekari Kasih Karunia Jemaat Haleluya' type='secondary'/>
+            <Text style={styles.content}>halaman Beranda</Text>
+            <Button title='tes'/>
         </View>
     )
 }
 
 export default Beranda
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    content: {
+        padding: 55,
+        paddingTop: 50
+    },
+})

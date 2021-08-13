@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         {
             fontSize: active ? 15 : 12,
             color: active ? colors.text.menuActive : colors.text.menuInactive,
-            fontFamily: fonts.primary.normal
+            fontFamily: fonts.primary[600]
             
         }
     )

@@ -4,7 +4,10 @@ const mainColors = {
 
     black1: '#323232',
 
-    grey1: '#7F7F7F'
+    grey1: '#7F7F7F',
+
+    white: 'white',
+    black: 'black'
 };
 
 export const colors = {
@@ -16,7 +19,13 @@ export const colors = {
     text: {
         primary: mainColors.black1,
         secondary: mainColors.grey1,
+        tersier: mainColors.green1,
         menuInactive: mainColors.green2,
         menuActive: mainColors.green1,
+    },
+
+    button: {
+        primary: mainColors.green1,
+        secondary: mainColors.white
     }
 }
