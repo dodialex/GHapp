@@ -5,6 +5,7 @@ const mainColors = {
     black1: '#323232',
 
     grey1: '#7F7F7F',
+    grey2: '#F2F2F2',
 
     white: 'white',
     black: 'black'
@@ -27,5 +28,9 @@ export const colors = {
     button: {
         primary: mainColors.green1,
         secondary: mainColors.white
-    }
+    },
+
+    border: mainColors.white,
+    cardPutih: mainColors.white,
+    background: mainColors.grey2,
 }
