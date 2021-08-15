@@ -1,14 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { ICWartaJemaat } from '../../../assets';
+import { ICWartaJemaat, ICJadwalIbadah, ICPersembahan, ICPokokDoa, ICKonseling } from '../../../assets';
 import { colors } from '../../../utils/colors';
 import { fonts } from '../../../utils/fonts';
 
-const Category = () => {
+const Category = ({category}) => {
+    const Icon = () => {
+        if (category === 'Warta Jemaat') {
+            return <ICWartaJemaat style={ styles.icon } />
+        }
+        if (category === 'Jadwal Ibadah') {
+            return <ICJadwalIbadah style={ styles.icon }/>
+        }
+        if (category === 'Persembahan') {
+            return <ICPersembahan style={ styles.icon } />
+        }
+        if (category === 'Pokok Doa') {
+            return <ICPokokDoa style={ styles.icon } />
+        }
+        if (category === 'Konseling') {
+            return <ICKonseling style={ styles.icon } />
+        }
+        return <ICPokokDoa style={ styles.icon } />
+    }
     return (
         <View style={styles.card}>
-            <ICWartaJemaat style={ styles.icon }/>
-            <Text style={styles.label}>Persembahan</Text>
+            <Icon/>
+            <Text style={styles.category}>{category}</Text>
         </View>
     )
 }
@@ -28,9 +46,10 @@ const styles = StyleSheet.create({
     icon: {
         marginBottom: 15
     },
-    label: {
+    category: {
         fontSize: 10,
         fontFamily: fonts.primary[400],
-        color: colors.text.primary
+        color: colors.text.primary,
+        height: 30
     }
 })

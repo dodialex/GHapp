@@ -1,9 +1,23 @@
-import React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
-import { Category, Header, NewsItem, Gap } from '../../components';
+import React, { useEffect, useState } from 'react';
+import { Linking, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Category, Gap, Header, NewsItem } from '../../components';
+import { Fire } from '../../config';
 import { colors } from '../../utils/colors';
+import { JSONCategory } from '../../assets';
 
-const Beranda = () => {
+const Beranda = ({onPress,navigation}) => {
+
+    const [news, setNews] = useState([]);
+    useEffect(() => {
+        Fire.database().ref('news/').once('value').then(res => {
+                console.log('data:', res.val());
+                if (res.val()) {
+                    setNews(res.val());
+                }
+            })
+       
+    }, []);
+
     return (
         <View style={styles.container}>
             <Header title='Gekari Kasih Karunia Jemaat Haleluya' type='secondary'/>
@@ -16,20 +30,30 @@ const Beranda = () => {
                         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                             <View style={styles.category}>
                                 <Gap width={40}/>
-                                <Category/>
-                                <Category/>
-                                <Category/>
-                                <Category/>
-                                <Category/>
+                                 {JSONCategory.data.map(item => {
+                                     return <Category
+                                                key={item.id}
+                                                category={item.category}/>
+                                 })}
                                 <Gap width={40}/>
                             </View>
                         </ScrollView>
                     </View>
-                    <View style={styles.news}>
-                        <NewsItem/>
-                        <NewsItem/>
-                        <NewsItem/>   
-                    </View>
+                        {news.map(item => {
+                            return (
+                                <TouchableOpacity 
+                                    style={styles.news} 
+                                    onPress={() => Linking.openURL(item.link)}>
+                                <NewsItem
+                                    key={item.id}
+                                    label={item.label}
+                                    title={item.title}
+                                    image={item.image}
+                                />
+                                </TouchableOpacity>
+
+                            );
+                        })} 
       
                     </View>
                 </View>
@@ -62,6 +86,6 @@ const styles = StyleSheet.create({
     },
 
     news: {
-        alignItems: 'center'
+        alignItems: 'center',
     },
 })

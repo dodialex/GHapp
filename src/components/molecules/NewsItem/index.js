@@ -4,12 +4,12 @@ import { DummyNews1 } from '../../../assets';
 import { fonts } from '../../../utils/fonts';
 import { colors } from '../../../utils/colors';
 
-const NewsItem = () => {
+const NewsItem = ({label, title, image, link}) => {
     return (
         <View style={styles.content}>
-            <Image source={DummyNews1} style={styles.image}/>
-            <Text style={styles.label}>Ibadah Minggu</Text>
-            <Text style={styles.title}>Deklarasi Bahwa Engkau Adalah Pribadi Yang Berharga Bagi Allah</Text>
+            <Image source={{uri:image}} style={styles.image}/>
+            <Text style={styles.label}>{label}</Text>
+            <Text style={styles.title}>{title}</Text>
         </View>
     )
 }

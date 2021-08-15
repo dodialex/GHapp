@@ -1,0 +1,27 @@
+{
+    "data": [{
+        "id": 1,
+        "category": "Warta Jemaat"
+    },
+    {
+        "id": 2,
+        "category": "Jadwal Ibadah"
+    },
+    {
+        "id": 3,
+        "category": "Persembahan"
+    },
+    {
+        "id": 4,
+        "category": "Pokok Doa"
+    },
+    {
+        "id": 5,
+        "category": "Konseling"
+    },
+    {
+        "id": 6,
+        "category": "Warta Jemaat"
+    }
+]
+}
